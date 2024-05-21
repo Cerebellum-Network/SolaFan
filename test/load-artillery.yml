@@ -1,0 +1,34 @@
+config:
+  target: https://localhost:3004
+  engines:
+    playwright:
+      defaultTimeout: 90
+      defaultNavigationTimeout: 60
+      extendedMetrics: true
+  #      launchOptions:
+  #        headless: false
+  processor: './flows/load-flow.js'
+  phases:
+    - duration: 1
+      arrivalCount: 1
+    - pause: 100
+    - duration: 100
+      arrivalCount: 5
+    - pause: 200
+    - duration: 400
+      arrivalCount: 20
+    - pause: 600
+    - duration: 800
+      arrivalCount: 50
+  environments:
+    local:
+      target: 'http://127.0.0.1:3004'
+    prod:
+      target: 'https://client-davinci.network.aws.cere.io'
+    stg:
+      target: 'https://client-davinci-stg.network-stage.aws.cere.io'
+    dev:
+      target: 'https://client-davinci-dev.network-dev.aws.cere.io'
+scenarios:
+  - engine: playwright
+    testFunction: 'loadFlow'

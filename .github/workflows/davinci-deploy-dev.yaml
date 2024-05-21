@@ -1,0 +1,61 @@
+name: '[Davinci] Deploy to dev'
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: [self-hosted, cere-io-large]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get Node.js version
+        id: nodejs-version
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.nodejs-version.outputs.NODE_VERSION }}
+          registry-url: https://registry.npmjs.org/
+      - name: Prepare/restore cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install packages
+        run: npm ci
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN_READ}}
+      - name: Build artifact
+        run: |
+          cp env/.env.${ENV} .env
+          npm run build
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN_READ}}
+          ENV: 'dev'
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.DEV_NETWORK_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_NETWORK_AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+      - name: Deploy static
+        env:
+          BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME_DEV }}
+          CF_DISTRIBUTION_ID: ${{ secrets.CF_DISTRIBUTION_ID_DEV }}
+        run: |
+          aws s3 sync build/ s3://${BUCKET_NAME}/
+          aws s3 cp src/locales/en/translation.json s3://${BUCKET_NAME}/static/locales/en/translation.json
+          invalidation_id=$(aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths "/*" --query Invalidation.Id --output text)
+          aws cloudfront wait invalidation-completed --distribution-id ${CF_DISTRIBUTION_ID} --id ${invalidation_id}
+      - name: Sync copies with CMS
+        env:
+          DAVINCI_CMS_S2S_AUTH_KEY: ${{ secrets.DAVINCI_CMS_S2S_AUTH_KEY_DEV }}
+          LIVEONE_CMS_S2S_AUTH_KEY: ${{ secrets.LIVEONE_CMS_S2S_AUTH_KEY_DEV }}
+          TREATS_CMS_S2S_AUTH_KEY: ${{ secrets.TREATS_CMS_S2S_AUTH_KEY_DEV }}
+        run: |
+          export $(grep REACT_APP_CMS_URL .env | xargs)
+          curl --fail -H "x-s2s-secret: $DAVINCI_CMS_S2S_AUTH_KEY" -X POST https://dev-freeport-cms.network-dev.aws.cere.io/cms-application-copies/sync-copies
+          curl --fail -H "x-s2s-secret: $LIVEONE_CMS_S2S_AUTH_KEY" -X POST https://dev-freeport-cms-liveone.network-dev.aws.cere.io/cms-application-copies/sync-copies
+      #      curl --fail -H "x-s2s-secret: $TREATS_CMS_S2S_AUTH_KEY" -X POST https://treats.cms.freeport.dev.cere.network/cms-application-copies/sync-copies

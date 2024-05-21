@@ -1,0 +1,5 @@
+export enum EXHIBITS_FILTERS {
+  LIVE_NOW = 'LIVE_NOW',
+  UPCOMING = 'UPCOMING',
+  CLOSED = 'CLOSED',
+}
