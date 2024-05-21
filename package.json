@@ -58,7 +58,7 @@
     "@types/fnv-lite": "^1.2.0",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/socket.io-client": "^1.4.36",
-    "axios": "^0.27.2",
+    "axios": "^0.28.0",
     "bootstrap": "^5.0.2",
     "calendar-link": "^2.6.0",
     "concurrently": "^6.2.1",
