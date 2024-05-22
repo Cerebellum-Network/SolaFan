@@ -24,3 +24,23 @@ Non-custodial walled with social auth.
 ### [Cere DDC](https://github.com/Cerebellum-Network/cere-ddc-sdk-js)
 
 Decentralised data cloud cluster for storing assets and metadata.
+
+## Quick start
+
+1. Install dependencies:
+
+```bash
+nvm exec npm i
+```
+
+1. Copy ENV file:
+
+```bash
+cp env/.env.dev .env
+```
+
+1. Run the app:
+
+```bash
+nvm exec npm start
+```
