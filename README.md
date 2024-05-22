@@ -1,4 +1,4 @@
-# SolarFan
+# SolaFan
 
 ## Bring the Future Of Media to Web3
 
