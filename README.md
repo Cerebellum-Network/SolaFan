@@ -1,12 +1,13 @@
-# SolaFan
+# SolaFans
 
-## Bring the Future Of Media to Web3
+## Bring the Future Of Web3 Media to Solana
 
-All-in-1 Artist Web3 Media Platform on Solana
+We are building this All-in-1 Artist Web3 Media Platform, fully integrated on Solana, to showcase how the power of decentralized data can change the game for artists and fans.
+We are enabling the following key features:
 
-- Easily Publish & Sell Content NFT embedded Anywhere (decentralize Spotify/Patreon)
-- NFT purchase -> custody > Permissioned content stream (decentralized AWS/CloudFlare)
-- Realtime Fan Insights > Manage Event Access (decentralize ticketmasters/eventbrite) - WIP
+- Artists Can Easily Publish & Sell Content NFT embedded Anywhere (e.g. decentralize Spotify/Patreon)
+- Fans NFT's are seamlessly purchased -> custody'd -> NFT-Permissioned content stream direct from one of our decentralized data clouds  (decentralized AWS/CloudFlare)
+- Realtime Fan Insights > Rewards Fans with Exclusive Event/Experience Access (decentralize Ticketmaster/Eventbrite) - WIP
 
 ## Added Solana Support Into Our Existing Tech Stack
 
@@ -27,7 +28,7 @@ Non-custodial walled with social auth.
 
 ### [Cere DDC](https://github.com/Cerebellum-Network/cere-ddc-sdk-js)
 
-Decentralised data cloud cluster for storing assets and metadata.
+Using Cere Decentralized data cloud cluster for storing assets and metadata For NFT's.
 
 ## Quick start
 
