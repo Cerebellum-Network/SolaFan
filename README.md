@@ -1,4 +1,4 @@
-# SolStream
+# SolarFan
 
 ## Bring the Future Of Media to Web3
 
@@ -24,4 +24,4 @@ Non-custodial walled with social auth.
 
 ### [Cere DDC](https://github.com/Cerebellum-Network/cere-ddc-sdk-js)
 
-Decentralise data cloud cluster for storing assets and metadata.
+Decentralised data cloud cluster for storing assets and metadata.
