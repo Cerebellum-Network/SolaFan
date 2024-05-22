@@ -13,14 +13,13 @@ All-in-1 Artist Web3 Media Platform on Solana
 ### [Cere Media SDK](https://cerebellum-network.github.io/cere-media-sdk-js/)
 
 The Media SDK is a development kit that can be used to upload and retrieve encrypted content for NFTs.
-
-- Added Solana signature scheme support
+- [Added Solana signature scheme support](https://github.com/Cerebellum-Network/cere-media-sdk-js/pull/40)
 
 ### [Cere Wallet](https://github.com/cere-io/cere-wallet-client)
 
 Non-custodial walled with social auth.
 
-- Added Solana network support
+- [Added Solana network support](https://github.com/cere-io/cere-wallet-client/pull/197/files)
 
 ### [Cere DDC](https://github.com/Cerebellum-Network/cere-ddc-sdk-js)
 
