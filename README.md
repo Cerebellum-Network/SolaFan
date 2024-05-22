@@ -33,13 +33,13 @@ Decentralised data cloud cluster for storing assets and metadata.
 nvm exec npm i
 ```
 
-1. Copy ENV file:
+2. Copy ENV file:
 
 ```bash
 cp env/.env.dev .env
 ```
 
-1. Run the app:
+3. Run the app:
 
 ```bash
 nvm exec npm start
