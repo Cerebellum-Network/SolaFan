@@ -48,3 +48,5 @@ cp env/.env.dev .env
 ```bash
 nvm exec npm start
 ```
+
+4. Open http://localhost:3000 in your browser
