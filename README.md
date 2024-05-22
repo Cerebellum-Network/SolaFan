@@ -19,7 +19,7 @@ The Media SDK is a development kit that can be used to upload and retrieve encry
 
 Non-custodial walled with social auth.
 
-- [Added Solana network support](https://github.com/cere-io/cere-wallet-client/pull/197/files)
+- Added Solana network support to [API](https://github.com/cere-io/cere-wallet-api/pull/35/files) and [Client](https://github.com/cere-io/cere-wallet-client/pull/197/files)
 
 ### [Cere DDC](https://github.com/Cerebellum-Network/cere-ddc-sdk-js)
 
