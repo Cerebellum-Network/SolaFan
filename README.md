@@ -6,9 +6,9 @@ All-in-1 Artist Web3 Media Platform on Solana
 
 - Easily Publish & Sell Content NFT embedded Anywhere (decentralize Spotify/Patreon)
 - NFT purchase -> custody > Permissioned content stream (decentralized AWS/CloudFlare)
-- Realtime Fan Insights > Manage Event Access (decentralize ticketmasters/eventbrite)
+- Realtime Fan Insights > Manage Event Access (decentralize ticketmasters/eventbrite) - WIP
 
-## Tech Stack
+## Added Solana Support Into Our Existing Tech Stack
 
 ### [Cere Media SDK](https://cerebellum-network.github.io/cere-media-sdk-js/)
 
