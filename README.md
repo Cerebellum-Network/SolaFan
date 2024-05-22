@@ -21,6 +21,10 @@ Non-custodial walled with social auth.
 
 - Added Solana network support to [API](https://github.com/cere-io/cere-wallet-api/pull/35/files) and [Client](https://github.com/cere-io/cere-wallet-client/pull/197/files)
 
+### [Fiat2Crypto Payment Service](https://github.com/cere-io/blockchain-transaction-service)
+
+- [Added Solana network support](https://github.com/cere-io/blockchain-transaction-service/pull/42/files)
+
 ### [Cere DDC](https://github.com/Cerebellum-Network/cere-ddc-sdk-js)
 
 Decentralised data cloud cluster for storing assets and metadata.
